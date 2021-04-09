@@ -1,0 +1,104 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Varela Round',Rubik, Roboto, sans-serif;   
+}
+
+:root {
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+
+    font-size: 16px;
+}
+
+body {
+    --hue: var(--hue-neutral);
+
+    padding: 0;
+    margin: 0;
+
+    /* Flex Model */
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    /* We want same saturation and lightness for neutral, correct and wrong scenario */
+    background-color: hsl(var(--hue), 50%, 30%);
+}
+
+/* Answer is correct */
+body.correct {
+    --hue: var(--hue-correct);
+}
+
+/* Answer is wrong */
+body.wrong {
+    --hue: var(--hue-wrong);
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0.2rem 0.2rem 1rem;
+}
+
+
+/* Grid */
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 1rem;
+    margin: 20px 0;
+
+}
+
+.btn {
+    --hue: var(--hue-neutral);
+    background-color: hsl(var(--hue), 100%, 50%);
+    border: 0.1rem solid hsl(var(--hue), 100%, 30%);
+    border-radius: 0.4rem;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.btn:hover {
+    border-color: white;
+}
+
+.btn.correct {
+    --hue: var(--hue-correct);
+    color: black;
+}
+
+.btn.wrong {
+    --hue: var(--hue-wrong);
+}
+
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-btn, 
+.next-btn {
+    background-color: hsl(40, 100%, 40%);
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 10px 20px;
+}
+
+.hide {
+    display: none;
+}
